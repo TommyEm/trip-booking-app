@@ -8,7 +8,6 @@ import {
 } from 'react-bootstrap';
 
 import { useStops } from './hooks/useStops';
-// import { useTrips } from './hooks/useTrips';
 import './App.css';
 
 const queryClient = new QueryClient();
@@ -35,29 +34,30 @@ const TestApp = () => {
 	}
 
 	return (
-		<Container>
-			<Row>
-				<Col>
-					<Form>
-						<Form.Group>
-							<Form.Select aria-label='Select a stop'>
-								{data?.map((stop: string) => (
-									<option key={stop} value={stop}>
-										{stop}
-									</option>
-								))}
-							</Form.Select>
-						</Form.Group>
-					</Form>
-				</Col>
-			</Row>
-		</Container>
+		<Form>
+			<Form.Group>
+				<Form.Select aria-label='Select a stop'>
+					{data?.map((stop: string) => (
+						<option key={stop} value={stop}>
+							{stop}
+						</option>
+					))}
+				</Form.Select>
+			</Form.Group>
+		</Form>
 	);
 };
 
 function App() {
 	return (
 		<QueryClientProvider client={queryClient}>
+			<Container>
+				<Row>
+					<Col>
+						<h1>Trip App</h1>
+					</Col>
+				</Row>
+			</Container>
 			<TestApp />
 		</QueryClientProvider>
 	);
