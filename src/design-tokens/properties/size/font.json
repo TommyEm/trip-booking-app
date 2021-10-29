@@ -1,0 +1,29 @@
+{
+	"size": {
+		"font": {
+			"s1" : { "value": "0.75" },
+			"s2":  { "value": "1" },
+			"s3" : { "value": "1.25" },
+			"s4" : { "value": "1.5" },
+			"s5" : { "value": "1.75" },
+			"s6" : { "value": "2" },
+			"s7" : { "value": "2.25" },
+			"s8" : { "value": "2.5" },
+			"base"  : {
+				"value": "{size.font.s2.value}",
+				"comment": "the base size of the font"
+			},
+
+			"lineheight": {
+				"s1" : { "value": "1" },
+				"s2":  { "value": "1" },
+				"s3" : { "value": "1" },
+				"s4" : { "value": "1.5" },
+				"s5" : { "value": "2" },
+				"s6" : { "value": "2" },
+				"s7" : { "value": "2" },
+				"s8" : { "value": "2" }
+			}
+		}
+	}
+}
