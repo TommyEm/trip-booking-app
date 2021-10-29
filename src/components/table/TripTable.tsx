@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 import dayjs from 'dayjs';
 import { Button, Table } from 'react-bootstrap';
 import { useTrips } from '../../hooks/useTrips';
@@ -17,6 +18,19 @@ export const TripTable = ({ className, departureStop }: ITripTable) => {
 		isError,
 		isLoading,
 	} = useTrips(departureStop);
+
+	const handleBookTrip = (tripId: string) => {
+		const res = axios.put(`https://6130d11c8066ca0017fdaa97.mockapi.io/book/${tripId}`, { booked: true })
+			.then(res => {
+				console.log(res);
+
+				// Display success
+
+
+			}).catch(err => {
+				console.log(err);
+			});
+	};
 
 	if (isLoading) {
 		return <p>Loading...</p>;
@@ -57,7 +71,7 @@ export const TripTable = ({ className, departureStop }: ITripTable) => {
 							<td>{trip.arrivalStop}</td>
 							<td>{arrivalTime}</td>
 							<td>
-								<Button onClick={() => console.log('Book')}>Book now</Button>
+								<Button onClick={() => handleBookTrip(trip.id.toString())}>Book now</Button>
 							</td>
 						</tr>
 					);
