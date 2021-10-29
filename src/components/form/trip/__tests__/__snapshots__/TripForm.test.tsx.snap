@@ -5,29 +5,15 @@ Object {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        class="spinner-border"
-        role="status"
-      >
-        <span
-          class="visually-hidden"
-        >
-          Loading...
-        </span>
-      </div>
+      <p>
+        Loading...
+      </p>
     </div>
   </body>,
   "container": <div>
-    <div
-      class="spinner-border"
-      role="status"
-    >
-      <span
-        class="visually-hidden"
-      >
-        Loading...
-      </span>
-    </div>
+    <p>
+      Loading...
+    </p>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

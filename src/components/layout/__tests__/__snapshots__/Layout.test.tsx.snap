@@ -6,27 +6,29 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="spinner-border"
-        role="status"
+        class="sc-bdvvtL gGYjnV Layout undefined"
+        data-testid="test-Layout"
       >
-        <span
-          class="visually-hidden"
-        >
+        <p>
           Loading...
-        </span>
+        </p>
+        <p>
+          Please select a departure stop.
+        </p>
       </div>
     </div>
   </body>,
   "container": <div>
     <div
-      class="spinner-border"
-      role="status"
+      class="sc-bdvvtL gGYjnV Layout undefined"
+      data-testid="test-Layout"
     >
-      <span
-        class="visually-hidden"
-      >
+      <p>
         Loading...
-      </span>
+      </p>
+      <p>
+        Please select a departure stop.
+      </p>
     </div>
   </div>,
   "debug": [Function],

@@ -1,7 +1,11 @@
 import React from 'react';
 import axios from 'axios';
 import dayjs from 'dayjs';
-import { Button, Table } from 'react-bootstrap';
+import {
+	Button,
+	Spinner,
+	Table,
+} from 'react-bootstrap';
 
 import { useTrips } from '../../../hooks/useTrips';
 import { StyledTripTable } from './TripTable.styled';
@@ -22,7 +26,7 @@ export const TripTable = ({ className, departureStop }: ITripTable) => {
 	} = useTrips(departureStop);
 
 	const handleBookTrip = (tripId: string) => {
-		const res = axios.put(`https://6130d11c8066ca0017fdaa97.mockapi.io/book/${tripId}`, { booked: true })
+		axios.put(`https://6130d11c8066ca0017fdaa97.mockapi.io/book/${tripId}`, { booked: true })
 			.then(res => {
 				console.log(res);
 
@@ -35,7 +39,11 @@ export const TripTable = ({ className, departureStop }: ITripTable) => {
 	};
 
 	if (isLoading) {
-		return <p>Loading...</p>;
+		return (
+			<Spinner animation="border" role="status">
+				<span className="visually-hidden">Loading...</span>
+			</Spinner>
+		);
 	}
 
 	if (isError) {

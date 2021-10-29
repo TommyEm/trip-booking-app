@@ -1,18 +1,17 @@
 import React from 'react';
-import { QueryClient, QueryClientProvider } from 'react-query';
 import {
 	cleanup,
 	render,
 	screen
 } from '@testing-library/react';
 import { composeStories } from '@storybook/testing-react';
+import { QueryClientProvider } from 'react-query';
+import { queryClient } from '../../../../App';
 
 import * as stories from '../TripTable.stories';
 
 const { Empty, Filled } = composeStories(stories);
 
-
-const queryClient = new QueryClient();
 
 afterEach(cleanup);
 const storyComponent = (
