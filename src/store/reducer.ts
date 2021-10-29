@@ -9,6 +9,14 @@ export const reducer = produce((draft: IAppState, action: IAction) => {
 			draft.departureStop = action.payload;
 			break;
 
+		case actions.UPDATE_THEME_MODE:
+			draft.isDarkMode = action.payload;
+			break;
+
+		case actions.UPDATE_THEME:
+			draft.theme = action.payload;
+			break;
+
 		default:
 			break;
 	}

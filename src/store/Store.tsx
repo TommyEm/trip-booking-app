@@ -1,10 +1,13 @@
 import React, { createContext, useReducer } from 'react';
+import { themeDarkMode } from '../style/themes';
 import { IAppContext, IAppState } from '../types/store';
 import { reducer } from './reducer';
 
 
 export const initialState: IAppState = {
 	departureStop: '',
+	isDarkMode: true,
+	theme: themeDarkMode,
 };
 
 

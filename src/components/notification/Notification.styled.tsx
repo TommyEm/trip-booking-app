@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import designTokens from '../../design-tokens/build/ts';
 
 
-const { color, size } = designTokens;
+const { size } = designTokens;
 
 export const StyledNotification = styled.div`
 	position: absolute;

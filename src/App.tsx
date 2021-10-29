@@ -1,45 +1,43 @@
-import React, { useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { ReactQueryDevtools } from 'react-query/devtools';
 import { ThemeProvider } from 'styled-components';
-import { themeDarkMode, themeLightMode } from './style/themes';
 import { GlobalStyle } from './style/GlobalStyle';
 import {
-	Button,
+	ToggleButton,
 	Container,
 	Col,
 	Row,
 } from 'react-bootstrap';
 
-import { Store } from './store/Store';
+import { themeDarkMode, themeLightMode } from './style/themes';
+import { AppContext, Store } from './store/Store';
+// import * as actions from './store/actionTypes';
 import { Layout } from './components/layout/Layout';
-import { Title } from './components/typography/title/Title';
+import { Header } from './components/header/Header';
 
 export const queryClient = new QueryClient();
 
 
 function App() {
-	const [isDarkMode, setIsDarkMode] = useState<boolean>(true);
-	const [theme, setTheme] = useState(themeDarkMode);
+	const { state: { isDarkMode, theme } } = useContext(AppContext);
+	// const [isDarkMode, setIsDarkMode] = useState<boolean>(true);
+	// const [theme, setTheme] = useState(themeDarkMode);
 
-	const toggleThemeMode = () => {
-		setTheme(isDarkMode ? themeLightMode : themeDarkMode);
-		setIsDarkMode(!isDarkMode);
-	}
+	// const toggleThemeMode = () => {
+	// 	setTheme(isDarkMode ? themeLightMode : themeDarkMode);
+	// 	// setIsDarkMode(!isDarkMode);
+	// 	dispatch({ type: actions.UPDATE_THEME_MODE, payload: !isDarkMode });
+	// };
 
 	return (
 		<Store>
 			<QueryClientProvider client={queryClient}>
-				<ThemeProvider theme={theme}>
+				<ThemeProvider theme={isDarkMode ? themeLightMode : themeDarkMode}>
 					<GlobalStyle />
 
 					<Container>
-						<Row>
-							<Col>
-								<Title>Trip Booking</Title>
-								<Button onClick={toggleThemeMode}>Toggle</Button>
-							</Col>
-						</Row>
+						<Header />
 						<Row>
 							<Col>
 								<Layout />
