@@ -13,6 +13,7 @@ import {
 
 import { Store } from './store/Store';
 import { Layout } from './components/layout/Layout';
+import { Title } from './components/typography/title/Title';
 
 export const queryClient = new QueryClient();
 
@@ -35,7 +36,7 @@ function App() {
 					<Container>
 						<Row>
 							<Col>
-								<h1>Trip App</h1>
+								<Title>Trip Booking</Title>
 								<Button onClick={toggleThemeMode}>Toggle</Button>
 							</Col>
 						</Row>

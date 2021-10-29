@@ -1,5 +1,5 @@
 import React, { useCallback, useContext } from 'react';
-import { Form, Spinner } from 'react-bootstrap';
+import { Form } from 'react-bootstrap';
 
 import * as actions from '../../../store/actionTypes';
 import { queryClient } from '../../../App';
