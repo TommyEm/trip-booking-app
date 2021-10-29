@@ -48,18 +48,20 @@ export const TripTable = ({ className, departureStop }: ITripTable) => {
 	}
 
 	return (
-		<StyledTripTable>
+		<StyledTripTable className={'TripTable ' + className}>
 			<Table
-				className={className}
+				className='TripTable-table'
 				data-testid='test-TripTable'
 			>
 				<thead>
 					<tr>
-						<th>Departure</th>
-						<th>Departure Time</th>
-						<th>Arrival</th>
-						<th>Arrival Time</th>
-						<th></th>
+						<th className='TripTable-departure'>
+							Departure
+						</th>
+						<th className='TripTable-arrival'>
+							Arrival
+						</th>
+						<th className='TripTable-booking'>Book</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -69,11 +71,17 @@ export const TripTable = ({ className, departureStop }: ITripTable) => {
 
 						return (
 							<tr key={trip.id}>
-								<td>{trip.departureStop}</td>
-								<td>{departureTime}</td>
-								<td>{trip.arrivalStop}</td>
-								<td>{arrivalTime}</td>
-								<td>
+								<td className='TripTable-departure'>
+									<span className='TripTable-stop-name'>{trip.departureStop}</span>
+									<br />
+									<span className='TripTable-stop-time'>{departureTime}</span>
+								</td>
+								<td className='TripTable-arrival'>
+									<span className='TripTable-stop-name'>{trip.arrivalStop}</span>
+									<br />
+									<span className='TripTable-stop-time'>{arrivalTime}</span>
+								</td>
+								<td className='TripTable-booking'>
 									<Button onClick={() => handleBookTrip(trip.id.toString())}>Book now</Button>
 								</td>
 							</tr>

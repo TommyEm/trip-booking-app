@@ -14,7 +14,7 @@ const { Default } = composeStories(stories);
 afterEach(cleanup);
 const storyComponent = <Default />;
 
-it('should render ...', () => {
+it('should render a layout', () => {
 	render(storyComponent);
 	expect(screen.getByTestId('test-Layout')).toBeVisible();
 });
