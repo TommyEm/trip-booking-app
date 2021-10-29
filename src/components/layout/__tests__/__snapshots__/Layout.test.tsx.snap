@@ -9,9 +9,21 @@ Object {
         class="sc-bdvvtL gGYjnV Layout undefined"
         data-testid="test-Layout"
       >
-        <p>
-          Loading...
-        </p>
+        <div
+          class="sc-dkPtRN iQbtbd Spinner undefined"
+          data-testid="test-Spinner"
+        >
+          <div
+            class="spinner-border"
+            role="status"
+          >
+            <span
+              class="visually-hidden"
+            >
+              Loading...
+            </span>
+          </div>
+        </div>
         <p>
           Please select a departure stop.
         </p>
@@ -23,9 +35,21 @@ Object {
       class="sc-bdvvtL gGYjnV Layout undefined"
       data-testid="test-Layout"
     >
-      <p>
-        Loading...
-      </p>
+      <div
+        class="sc-dkPtRN iQbtbd Spinner undefined"
+        data-testid="test-Spinner"
+      >
+        <div
+          class="spinner-border"
+          role="status"
+        >
+          <span
+            class="visually-hidden"
+          >
+            Loading...
+          </span>
+        </div>
+      </div>
       <p>
         Please select a departure stop.
       </p>

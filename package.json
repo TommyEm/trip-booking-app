@@ -25,7 +25,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --setupFiles ./jest/setup.js",
     "eject": "react-scripts eject",
     "build-dt": "cd ./src/design-tokens && node build.js",
     "storybook": "start-storybook -p 6006 -s public",
