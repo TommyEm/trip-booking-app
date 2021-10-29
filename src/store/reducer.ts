@@ -6,8 +6,6 @@ import * as actions from '../store/actionTypes';
 export const reducer = produce((draft: IAppState, action: IAction) => {
 	switch (action.type) {
 		case actions.UPDATE_DEPARTURE_STOP:
-			console.log('UPDATE');
-
 			draft.departureStop = action.payload;
 			break;
 

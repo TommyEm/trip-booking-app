@@ -7,8 +7,8 @@ import {
 
 import { StyledLayout } from './Layout.styled';
 // import { useUpdateTrips } from '../../hooks/useUpdateTrips';
-import { TripForm } from '../tripform/TripForm';
-import { TripTableContainer } from '../table/TripTableContainer';
+import { TripForm } from '../form/trip/TripForm';
+import { TripTableContainer } from '../table/trip/TripTableContainer';
 import { AppContext } from '../../store/Store';
 
 

@@ -1,37 +1,53 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { ReactQueryDevtools } from 'react-query/devtools';
+import { ThemeProvider } from 'styled-components';
+import { themeDarkMode, themeLightMode } from './style/themes';
+import { GlobalStyle } from './style/GlobalStyle';
 import {
 	Container,
 	Col,
 	Row,
+	Button,
 } from 'react-bootstrap';
 
 import { Store } from './store/Store';
 import { Layout } from './components/layout/Layout';
-import './App.css';
 
 export const queryClient = new QueryClient();
 
+
 function App() {
+	const [isDarkMode, setIsDarkMode] = useState<boolean>(true);
+	const [theme, setTheme] = useState(themeDarkMode);
+
+	const toggleThemeMode = () => {
+		setTheme(isDarkMode ? themeLightMode : themeDarkMode);
+		setIsDarkMode(!isDarkMode);
+	}
+
 	return (
 		<Store>
 			<QueryClientProvider client={queryClient}>
-				<Container>
-					<Row>
-						<Col>
-							<h1>Trip App</h1>
-						</Col>
-					</Row>
-					<Row>
-						<Col>
-							<Layout />
-						</Col>
-					</Row>
-				</Container>
+				<ThemeProvider theme={theme}>
+					<GlobalStyle />
+
+					<Container>
+						<Row>
+							<Col>
+								<h1>Trip App</h1>
+								<Button onClick={toggleThemeMode}>Toggle</Button>
+							</Col>
+						</Row>
+						<Row>
+							<Col>
+								<Layout />
+							</Col>
+						</Row>
+					</Container>
+				</ThemeProvider>
 
 				<ReactQueryDevtools />
-
 			</QueryClientProvider>
 		</Store>
 	);
