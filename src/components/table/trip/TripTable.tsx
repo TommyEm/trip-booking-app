@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import dayjs from 'dayjs';
 import {
@@ -9,6 +9,7 @@ import {
 
 import { useTrips } from '../../../hooks/useTrips';
 import { StyledTripTable } from './TripTable.styled';
+import { Notification } from '../../notification/Notification';
 
 
 export interface ITripTable {
@@ -18,6 +19,7 @@ export interface ITripTable {
 
 export const TripTable = ({ className, departureStop }: ITripTable) => {
 
+	const [showBookSuccess, setShowBookSuccess] = useState<boolean>(false);
 	const {
 		data,
 		error,
@@ -31,7 +33,7 @@ export const TripTable = ({ className, departureStop }: ITripTable) => {
 				console.log(res);
 
 				// Display success
-
+				setShowBookSuccess(true);
 
 			}).catch(err => {
 				console.log(err);
@@ -57,6 +59,12 @@ export const TripTable = ({ className, departureStop }: ITripTable) => {
 
 	return (
 		<StyledTripTable className={'TripTable ' + className}>
+			<Notification
+				isShown={showBookSuccess}
+				tripInfo='Test'
+				onClose={() => setShowBookSuccess(false)}
+			/>
+
 			<Table
 				className='TripTable-table'
 				data-testid='test-TripTable'

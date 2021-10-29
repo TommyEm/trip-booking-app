@@ -5,10 +5,10 @@ import { ThemeProvider } from 'styled-components';
 import { themeDarkMode, themeLightMode } from './style/themes';
 import { GlobalStyle } from './style/GlobalStyle';
 import {
+	Button,
 	Container,
 	Col,
 	Row,
-	Button,
 } from 'react-bootstrap';
 
 import { Store } from './store/Store';
