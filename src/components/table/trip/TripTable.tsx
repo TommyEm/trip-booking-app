@@ -41,6 +41,8 @@ export const TripTable = ({ className, departureStop }: ITripTable) => {
 	};
 
 	if (isLoading) {
+		console.log('Loading');
+
 		return (
 			<Spinner animation="border" role="status">
 				<span className="visually-hidden">Loading...</span>
@@ -56,6 +58,20 @@ export const TripTable = ({ className, departureStop }: ITripTable) => {
 			</div>
 		);
 	}
+
+	data?.sort((a, b) => {
+		const fa = a.arrivalStop.toLowerCase();
+		const fb = b.arrivalStop.toLowerCase();
+
+		if (fa < fb) {
+			return -1
+		}
+		if (fa > fb) {
+			return 1;
+		}
+		return 0;
+	});
+
 
 	return (
 		<StyledTripTable className={'TripTable ' + className}>
