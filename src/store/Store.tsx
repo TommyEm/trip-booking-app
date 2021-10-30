@@ -13,7 +13,7 @@ export const initialState: IAppState = {
 
 export const AppContext = createContext<IAppContext>({
 	state: initialState,
-	dispatch: () => { },
+	dispatch: () => {},
 });
 
 export const Store: React.FC = ({ children }) => {

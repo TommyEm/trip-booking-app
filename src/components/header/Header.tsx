@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useCallback, useContext, useState } from 'react';
 import {
 	ToggleButton,
 	Col,
@@ -9,7 +9,6 @@ import { StyledHeader } from './Header.styled';
 import { Title } from '../typography/title/Title';
 import * as actions from '../../store/actionTypes';
 import { AppContext } from '../../store/Store';
-import { themeDarkMode, themeLightMode } from '../../style/themes';
 
 
 export interface IHeaderProps {
@@ -19,16 +18,15 @@ export interface IHeaderProps {
 export const Header = (props: IHeaderProps) => {
 
 	const [isDarkMode, setDarkMode] = useState<boolean>(true);
-	const { state, dispatch } = useContext(AppContext);
+	const { dispatch } = useContext(AppContext);
 
-	const toggleThemeMode = () => {
+	const toggleThemeMode = useCallback(() => {
 		setDarkMode(!isDarkMode);
-		// dispatch({ type: actions.UPDATE_THEME_MODE, payload: isDarkMode });
-		dispatch({ type: actions.UPDATE_THEME, payload: isDarkMode ? themeDarkMode : themeLightMode });
-	};
+		dispatch({ type: actions.UPDATE_THEME_MODE, payload: !isDarkMode });
+	}, [dispatch, isDarkMode]);
 
 	return (
-		<StyledHeader className='App-header'>
+		<StyledHeader className='App-header' data-testid='test-Header'>
 			<Row>
 				<Col xs={9}>
 					<Title>Trip Booking</Title>

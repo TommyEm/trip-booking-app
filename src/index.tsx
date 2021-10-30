@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Store } from './store/Store';
 import reportWebVitals from './reportWebVitals';
 
 import App from './App';
@@ -8,7 +9,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 ReactDOM.render(
 	<React.StrictMode>
-		<App />
+		<Store>
+			<App />
+		</Store>
 	</React.StrictMode>,
 	document.getElementById('root')
 );
