@@ -1,16 +1,14 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import dayjs from 'dayjs';
-import {
-	Button,
-	Spinner,
-	Table,
-} from 'react-bootstrap';
+import { Button, Table } from 'react-bootstrap';
 
 import { useTrips } from '../../../hooks/useTrips';
 import { StyledTripTable } from './TripTable.styled';
 import { Notification } from '../../notification/Notification';
+import { BasicSpinner } from '../../spinner/BasicSpinner';
 import { API_BOOKING } from '../../../constants/api';
+import { useUpdateTrips } from '../../../hooks/useUpdateTrips';
 
 
 export interface ITripTable {
@@ -33,7 +31,6 @@ export const TripTable = ({ className, departureStop }: ITripTable) => {
 			.then(res => {
 				// Display success notification
 				setShowBookSuccess(true);
-
 				return res.data;
 
 			}).catch(err => {
@@ -42,13 +39,7 @@ export const TripTable = ({ className, departureStop }: ITripTable) => {
 	};
 
 	if (isLoading) {
-		console.log('Loading');
-
-		return (
-			<Spinner animation="border" role="status">
-				<span className="visually-hidden">Loading...</span>
-			</Spinner>
-		);
+		return <BasicSpinner />;
 	}
 
 	if (isError) {
@@ -60,6 +51,7 @@ export const TripTable = ({ className, departureStop }: ITripTable) => {
 		);
 	}
 
+	// Sort the data by arrival stop
 	data?.sort((a, b) => {
 		const fa = a.arrivalStop.toLowerCase();
 		const fb = b.arrivalStop.toLowerCase();

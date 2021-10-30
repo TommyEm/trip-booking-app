@@ -9,26 +9,29 @@ export const useUpdateTrips = () => {
 	return useMutation(
 		(stop: string) => axios.get(`${API_TRIPS}?departureStop=${stop}`)
 			.then(res => res.data),
-			{
-				onMutate: async () => {
-					await queryClient.cancelQueries('trips');
+		{
+			onMutate: async () => {
+				// await queryClient.cancelQueries('trips');
 
-					const previousTrips = queryClient.getQueryData<ITrip>('trips')
+				const previousTrips = queryClient.getQueryData<ITrip>('trips');
 
-					if (previousTrips) {
-						queryClient.setQueryData<ITrip>('trips', previousTrips);
-					}
+				// if (previousTrips) {
+				// 	queryClient.setQueryData<ITrip>('trips', previousTrips);
+				// }
 
-					return { previousTrips }
-				},
-				onError: (err, variables, context) => {
-					if (context?.previousTrips) {
-						queryClient.setQueryData<ITrip>('trips', context.previousTrips)
-					}
-				},
-				onSettled: (trips) => {
-					queryClient.setQueryData('trips', trips);
+				return { previousTrips }
+			},
+			onError: (err, variables, context) => {
+				if (context?.previousTrips) {
+					queryClient.setQueryData<ITrip>('trips', context.previousTrips)
 				}
-			}
-		);
+			},
+			// onSettled: (trips) => {
+			// 	queryClient.setQueryData('trips', trips);
+			// },
+			onSuccess: (trips) => {
+				queryClient.setQueryData('trips', trips);
+			},
+		}
+	);
 };
