@@ -6,8 +6,8 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="sc-bdvvtL gGYjnV Layout undefined"
-        data-testid="test-Layout"
+        class="sc-bdvvtL gGYjnV TripLayout undefined"
+        data-testid="test-TripLayout"
       >
         <div
           class="sc-dkPtRN iQbtbd Spinner undefined"
@@ -147,8 +147,8 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="sc-bdvvtL gGYjnV Layout undefined"
-      data-testid="test-Layout"
+      class="sc-bdvvtL gGYjnV TripLayout undefined"
+      data-testid="test-TripLayout"
     >
       <div
         class="sc-dkPtRN iQbtbd Spinner undefined"

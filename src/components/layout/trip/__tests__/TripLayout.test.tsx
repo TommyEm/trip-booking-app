@@ -6,9 +6,9 @@ import {
 } from '@testing-library/react';
 import { composeStories } from '@storybook/testing-react';
 import { QueryClientProvider } from 'react-query';
-import { queryClient } from '../../../App';
+import { queryClient } from '../../../../App';
 
-import * as stories from '../Layout.stories';
+import * as stories from '../TripLayout.stories';
 
 const { Default } = composeStories(stories);
 
@@ -22,7 +22,7 @@ const storyComponent = (
 
 it('should render a layout', () => {
 	render(storyComponent);
-	expect(screen.getByTestId('test-Layout')).toBeVisible();
+	expect(screen.getByTestId('test-TripLayout')).toBeVisible();
 });
 
 it('matches snapshot', () => {

@@ -10,7 +10,12 @@ export const StyledTripTable = styled.div`
 	.TripTable {
 		&-table {
 			color: ${props => props.theme.foreground.primary};
+
+			td {
+				border-color: ${props => props.theme.foreground.subtle};
+			}
 		}
+
 
 		&-arrival {
 			text-align: right;

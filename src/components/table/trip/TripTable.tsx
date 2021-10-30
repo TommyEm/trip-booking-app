@@ -10,6 +10,7 @@ import {
 import { useTrips } from '../../../hooks/useTrips';
 import { StyledTripTable } from './TripTable.styled';
 import { Notification } from '../../notification/Notification';
+import { API_BOOKING } from '../../../constants/api';
 
 
 export interface ITripTable {
@@ -28,12 +29,12 @@ export const TripTable = ({ className, departureStop }: ITripTable) => {
 	} = useTrips(departureStop);
 
 	const handleBookTrip = (tripId: string) => {
-		axios.put(`https://6130d11c8066ca0017fdaa97.mockapi.io/book/${tripId}`, { booked: true })
+		axios.put(`${API_BOOKING}${tripId}`, { booked: true })
 			.then(res => {
-				console.log(res);
-
-				// Display success
+				// Display success notification
 				setShowBookSuccess(true);
+
+				return res.data;
 
 			}).catch(err => {
 				console.log(err);

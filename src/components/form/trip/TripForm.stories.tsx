@@ -4,7 +4,7 @@ import { Story, Meta } from '@storybook/react';
 import { TripForm, ITripFormProps } from './TripForm';
 
 export default {
-	title: 'Components/TripForm',
+	title: 'Components/Form/TripForm',
 	component: TripForm,
 } as Meta;
 

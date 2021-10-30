@@ -4,6 +4,6 @@ import styled from 'styled-components';
 
 // const { color, size } = designTokens;
 
-export const StyledLayout = styled.div`
+export const StyledTripLayout = styled.div`
 
 `;

@@ -6,7 +6,7 @@ Object {
   "baseElement": <body>
     <div>
       <header
-        class="sc-bdvvtL gGYjnV App-header"
+        class="sc-bdvvtL kCnsCz App-header"
         data-testid="test-Header"
       >
         <div
@@ -47,7 +47,7 @@ Object {
   </body>,
   "container": <div>
     <header
-      class="sc-bdvvtL gGYjnV App-header"
+      class="sc-bdvvtL kCnsCz App-header"
       data-testid="test-Header"
     >
       <div

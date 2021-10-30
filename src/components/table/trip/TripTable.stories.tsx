@@ -4,7 +4,7 @@ import { Story, Meta } from '@storybook/react';
 import { TripTable, ITripTable } from './TripTable';
 
 export default {
-	title: 'Components/TripTable',
+	title: 'Components/Table/TripTable',
 	component: TripTable,
 } as Meta;
 
