@@ -5,5 +5,4 @@ import styled from 'styled-components';
 // const { color, size } = designTokens;
 
 export const StyledTripForm = styled.div`
-
 `;

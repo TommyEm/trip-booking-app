@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { QueryClient, QueryClientProvider } from 'react-query';
-// import { ReactQueryDevtools } from 'react-query/devtools';
+import { ReactQueryDevtools } from 'react-query/devtools';
 import { ThemeProvider } from 'styled-components';
 import { GlobalStyle } from './style/GlobalStyle';
 import {
@@ -38,7 +38,7 @@ function App() {
 				</Container>
 			</ThemeProvider>
 
-			{/* <ReactQueryDevtools /> */}
+			<ReactQueryDevtools />
 		</QueryClientProvider>
 	);
 }

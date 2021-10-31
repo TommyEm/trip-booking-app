@@ -8,7 +8,6 @@ import { StyledTripTable } from './TripTable.styled';
 import { Notification } from '../../notification/Notification';
 import { BasicSpinner } from '../../spinner/BasicSpinner';
 import { API_BOOKING } from '../../../constants/api';
-import { useUpdateTrips } from '../../../hooks/useUpdateTrips';
 
 
 export interface ITripTable {

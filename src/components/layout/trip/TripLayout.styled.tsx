@@ -5,5 +5,7 @@ import styled from 'styled-components';
 // const { color, size } = designTokens;
 
 export const StyledTripLayout = styled.div`
-
+	.TripLayout-form {
+		min-height: 38px;
+	}
 `;

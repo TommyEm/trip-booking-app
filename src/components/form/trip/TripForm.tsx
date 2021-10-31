@@ -2,9 +2,7 @@ import React, { useCallback, useContext } from 'react';
 import { Form } from 'react-bootstrap';
 
 import * as actions from '../../../store/actionTypes';
-import { queryClient } from '../../../App';
 import { useStops } from '../../../hooks/useStops';
-import { useUpdateTrips } from '../../../hooks/useUpdateTrips';
 import { AppContext } from '../../../store/Store';
 import { StyledTripForm } from './TripForm.styled';
 import { BasicSpinner } from '../../spinner/BasicSpinner';
@@ -20,19 +18,15 @@ export const TripForm: React.FC<ITripFormProps> = ({
 	const { state: { departureStop }, dispatch } = useContext(AppContext);
 
 	const {
-		data,
+		data: stops,
 		error,
 		isError,
 		isLoading
 	} = useStops();
-	const updateTrips = useUpdateTrips();
 
 	const handleChangeStop = useCallback((stop: string) => {
 		dispatch({ type: actions.UPDATE_DEPARTURE_STOP, payload: stop });
-
-		queryClient.invalidateQueries('trips');
-		updateTrips.mutate(stop);
-	}, [dispatch, updateTrips]);
+	}, [dispatch]);
 
 	if (isLoading) {
 		return <BasicSpinner />;
@@ -60,7 +54,7 @@ export const TripForm: React.FC<ITripFormProps> = ({
 						onChange={e => handleChangeStop(e.currentTarget.value)}
 					>
 						<option value=''>Select a departure stop</option>
-						{data?.map((stop: string) => (
+						{stops?.map((stop: string) => (
 							<option key={stop} value={stop}>
 								{stop}
 							</option>

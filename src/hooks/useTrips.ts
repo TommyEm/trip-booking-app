@@ -6,7 +6,7 @@ import { API_TRIPS } from '../constants/api';
 
 export const useTrips = (departureStop: string) => {
 	return useQuery<ITrip[], Error>(
-		'trips',
+		['trips', departureStop],
 		() => axios.get(`${API_TRIPS}?departureStop=${departureStop}`)
 			.then(res => res.data)
 	);

@@ -23,7 +23,10 @@ export const TripLayout: React.FC<ITripLayoutProps> = ({
 			data-testid='test-TripLayout'
 		>
 			<Spacer size={6}>
-				<TripForm />
+				<div className='TripLayout-form'>
+					<TripForm />
+				</div>
+
 				<TripTableContainer departureStop={departureStop} />
 			</Spacer>
 		</StyledTripLayout>
