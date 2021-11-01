@@ -11,6 +11,7 @@ declare module 'styled-components' {
 			accent: string,
 			disabled: string,
 			focus: string,
+			reverse: string,
 		};
 		background: {
 			primary: string,
@@ -19,6 +20,7 @@ declare module 'styled-components' {
 			accent: string,
 			disabled: string,
 			focus: string,
+			reverse: string,
 		};
 		action: {
 			idle: string,
@@ -40,18 +42,20 @@ export const themeLightMode: DefaultTheme = {
 	foreground: {
 		primary: color.neutral.s900.value,
 		secondary: color.neutral.s700.value,
-		subtle: color.neutral.s500.value,
+		subtle: color.neutral.s100.value,
 		accent: color.primary.s300.value,
 		disabled: color.neutral.s300.value,
 		focus: color.primary.s200.value,
+		reverse: color.neutral.s0.value,
 	},
 	background: {
 		primary: color.neutral.s0.value,
 		secondary: color.neutral.s100.value,
 		subtle: color.neutral.s50.value,
 		accent: color.primary.s300.value,
-		disabled: color.neutral.s400.value,
+		disabled: color.neutral.s200.value,
 		focus: color.primary.s500.value,
+		reverse: color.neutral.s900.value,
 	},
 	action: {
 		idle: color.primary.s300.value,
@@ -74,14 +78,16 @@ export const themeDarkMode: DefaultTheme = {
 		accent: color.primary.s300.value,
 		disabled: color.neutral.s600.value,
 		focus: color.primary.s200.value,
+		reverse: color.neutral.s900.value,
 	},
 	background: {
 		primary: color.neutral.s900.value,
 		secondary: color.neutral.s700.value,
-		subtle: color.neutral.s800.value,
+		subtle: color.neutral.s600.value,
 		accent: color.primary.s300.value,
-		disabled: color.neutral.s600.value,
+		disabled: color.neutral.s800.value,
 		focus: color.primary.s500.value,
+		reverse: color.neutral.s0.value,
 	},
 	action: {
 		idle: color.primary.s300.value,
