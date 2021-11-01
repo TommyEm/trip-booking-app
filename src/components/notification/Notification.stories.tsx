@@ -12,6 +12,3 @@ export default {
 const Template: Story<INotificationProps> = args => <Notification {...args} />;
 
 export const Default = Template.bind({});
-Default.args = {
-
-};

@@ -10,11 +10,6 @@ export default {
 
 const Template: Story<ITripTable> = args => <TripTable {...args} />;
 
-export const Empty = Template.bind({});
-Empty.args = {
-	// tripData: [],
-};
-
 export const Filled = Template.bind({});
 Filled.args = {
 	departureStop: 'Le Marais',

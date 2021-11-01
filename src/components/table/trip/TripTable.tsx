@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import dayjs from 'dayjs';
 import { Button, Table } from 'react-bootstrap';
 
 import { useTrips } from '../../../hooks/useTrips';
@@ -8,6 +7,8 @@ import { StyledTripTable } from './TripTable.styled';
 import { Notification } from '../../notification/Notification';
 import { BasicSpinner } from '../../spinner/BasicSpinner';
 import { API_BOOKING } from '../../../constants/api';
+import { formatDateTime, sortTripData } from '../../../lib/utils';
+import { ITrip } from '../../../types/api';
 
 
 export interface ITripTable {
@@ -18,8 +19,9 @@ export interface ITripTable {
 export const TripTable = ({ className, departureStop }: ITripTable) => {
 
 	const [showBookSuccess, setShowBookSuccess] = useState<boolean>(false);
+	const [bookedTrip, setBookedTrip] = useState<ITrip>({} as ITrip);
 	const {
-		data,
+		data: trips,
 		error,
 		isError,
 		isLoading,
@@ -29,6 +31,10 @@ export const TripTable = ({ className, departureStop }: ITripTable) => {
 		axios.put(`${API_BOOKING}${tripId}`, { booked: true })
 			.then(res => {
 				// Display success notification
+				if (trips) {
+					setBookedTrip(trips.filter(trip => trip.id.toString() === tripId)[0]);
+				}
+
 				setShowBookSuccess(true);
 				return res.data;
 
@@ -50,26 +56,19 @@ export const TripTable = ({ className, departureStop }: ITripTable) => {
 		);
 	}
 
-	// Sort the data by arrival stop
-	data?.sort((a, b) => {
-		const fa = a.arrivalStop.toLowerCase();
-		const fb = b.arrivalStop.toLowerCase();
+	if (trips) {
+		sortTripData(trips);
+	}
 
-		if (fa < fb) {
-			return -1
-		}
-		if (fa > fb) {
-			return 1;
-		}
-		return 0;
-	});
-
+	function formatTripInfo(trip: ITrip) {
+		return `${trip.departureStop} - ${trip.arrivalStop}`;
+	}
 
 	return (
 		<StyledTripTable className={'TripTable ' + className}>
 			<Notification
 				isShown={showBookSuccess}
-				tripInfo='Test'
+				tripInfo={formatTripInfo(bookedTrip)}
 				onClose={() => setShowBookSuccess(false)}
 			/>
 
@@ -89,21 +88,26 @@ export const TripTable = ({ className, departureStop }: ITripTable) => {
 					</tr>
 				</thead>
 				<tbody>
-					{data?.map(trip => {
-						const departureTime = dayjs(trip.departureTime).format('Le DD/MM/YYYY à hh:mm');
-						const arrivalTime = dayjs(trip.arrivalTime).format('Le DD/MM/YYYY à hh:mm');
-
+					{trips?.map(trip => {
 						return (
 							<tr key={trip.id}>
 								<td className='TripTable-departure'>
-									<span className='TripTable-stop-name'>{trip.departureStop}</span>
+									<span className='TripTable-stop-name'>
+										{trip.departureStop}
+									</span>
 									<br />
-									<span className='TripTable-stop-time'>{departureTime}</span>
+									<span className='TripTable-stop-time'>
+										{formatDateTime(trip.departureTime)}
+									</span>
 								</td>
 								<td className='TripTable-arrival'>
-									<span className='TripTable-stop-name'>{trip.arrivalStop}</span>
+									<span className='TripTable-stop-name'>
+										{trip.arrivalStop}
+									</span>
 									<br />
-									<span className='TripTable-stop-time'>{arrivalTime}</span>
+									<span className='TripTable-stop-time'>
+										{formatDateTime(trip.arrivalTime)}
+									</span>
 								</td>
 								<td className='TripTable-booking'>
 									<Button onClick={() => handleBookTrip(trip.id.toString())}>Book now</Button>

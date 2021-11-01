@@ -12,6 +12,3 @@ export default {
 const Template: Story<ITripFormProps> = args => <TripForm {...args} />;
 
 export const Default = Template.bind({});
-Default.args = {
-
-};

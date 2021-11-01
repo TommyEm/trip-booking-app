@@ -6,7 +6,7 @@ Object {
   "baseElement": <body>
     <div>
       <header
-        class="sc-bdvvtL kCnsCz App-header"
+        class="sc-bdvvtL hfHGsY App-header"
         data-testid="test-Header"
       >
         <div
@@ -25,21 +25,32 @@ Object {
           <div
             class="App-header-right col-3"
           >
-            <input
-              autocomplete="off"
-              checked=""
-              class="btn-check"
-              id="toggle-dark-mode"
-              value="dark"
-            />
-            <label
-              class="btn btn-primary"
-              for="toggle-dark-mode"
-              role="button"
-              tabindex="0"
+            <div
+              class="sc-dkPtRN dXVwTn ToggleModeButton mod-checked undefined"
+              data-testid="test-ToggleModeButton"
             >
-              Toggle
-            </label>
+              <span>
+                Light
+              </span>
+              <input
+                autocomplete="off"
+                checked=""
+                class="btn-check"
+                id="toggle-dark-mode"
+                value="dark"
+              />
+              <label
+                class="btn btn-primary"
+                for="toggle-dark-mode"
+                role="button"
+                tabindex="0"
+              >
+                Toggle
+              </label>
+              <span>
+                Dark
+              </span>
+            </div>
           </div>
         </div>
       </header>
@@ -47,7 +58,7 @@ Object {
   </body>,
   "container": <div>
     <header
-      class="sc-bdvvtL kCnsCz App-header"
+      class="sc-bdvvtL hfHGsY App-header"
       data-testid="test-Header"
     >
       <div
@@ -66,21 +77,32 @@ Object {
         <div
           class="App-header-right col-3"
         >
-          <input
-            autocomplete="off"
-            checked=""
-            class="btn-check"
-            id="toggle-dark-mode"
-            value="dark"
-          />
-          <label
-            class="btn btn-primary"
-            for="toggle-dark-mode"
-            role="button"
-            tabindex="0"
+          <div
+            class="sc-dkPtRN dXVwTn ToggleModeButton mod-checked undefined"
+            data-testid="test-ToggleModeButton"
           >
-            Toggle
-          </label>
+            <span>
+              Light
+            </span>
+            <input
+              autocomplete="off"
+              checked=""
+              class="btn-check"
+              id="toggle-dark-mode"
+              value="dark"
+            />
+            <label
+              class="btn btn-primary"
+              for="toggle-dark-mode"
+              role="button"
+              tabindex="0"
+            >
+              Toggle
+            </label>
+            <span>
+              Dark
+            </span>
+          </div>
         </div>
       </div>
     </header>

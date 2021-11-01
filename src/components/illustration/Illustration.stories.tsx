@@ -12,6 +12,3 @@ export default {
 const Template: Story<IIllustrationProps> = args => <Illustration {...args} />;
 
 export const Default = Template.bind({});
-Default.args = {
-
-};

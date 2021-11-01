@@ -6,7 +6,7 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="sc-bdvvtL zSYbX Notification undefined"
+        class="sc-bdvvtL kLTspj Notification undefined"
         data-testid="test-Notification"
       >
         <div
@@ -39,7 +39,7 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="sc-bdvvtL zSYbX Notification undefined"
+      class="sc-bdvvtL kLTspj Notification undefined"
       data-testid="test-Notification"
     >
       <div

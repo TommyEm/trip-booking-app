@@ -12,6 +12,3 @@ export default {
 const Template: Story<IBasicSpinnerProps> = args => <BasicSpinner {...args} />;
 
 export const Default = Template.bind({});
-Default.args = {
-
-};

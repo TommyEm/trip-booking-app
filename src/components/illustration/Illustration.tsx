@@ -3,9 +3,7 @@ import React from 'react';
 import { StyledIllustration } from './Illustration.styled';
 
 
-export interface IIllustrationProps {
-
-}
+export interface IIllustrationProps {}
 
 export const Illustration = (props: IIllustrationProps) => {
 	return (

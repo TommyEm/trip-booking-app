@@ -4,7 +4,6 @@ import designTokens from '../../../design-tokens/build/ts';
 
 const { size } = designTokens;
 
-
 export const StyledTripTable = styled.div`
 
 	.TripTable {

@@ -10,7 +10,7 @@ import { queryClient } from '../../../../App';
 
 import * as stories from '../TripTable.stories';
 
-const { Empty, Filled } = composeStories(stories);
+const { Filled } = composeStories(stories);
 
 
 afterEach(cleanup);
@@ -20,15 +20,7 @@ const storyComponent = (
 	</QueryClientProvider>
 );
 
-it('should render an empty list', () => {
-	render(<QueryClientProvider client={queryClient}><Empty /></QueryClientProvider>);
-	setTimeout(
-		() => expect(screen.getByText(/Please select a departure stop/i)).toBeInTheDocument(),
-		1000,
-	);
-});
-
-it('should render a filled list', () => {
+it('should render a table with content', () => {
 	render(storyComponent);
 	setTimeout(
 		() => expect(screen.getByTestId('test-TripTable')).toBeVisible(),

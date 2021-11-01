@@ -11,7 +11,7 @@ export const StyledNotification = styled.div`
 	z-index: 100;
 
 	.toast {
-		background-color: ${props => props.theme.background.secondary};
+		background-color: ${props => props.theme.background.subtle};
 	}
 
 	.toast-header {
