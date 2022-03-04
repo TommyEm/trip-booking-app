@@ -1,5 +1,26 @@
 {
   "extends": [
     "config:base"
+  ],
+  "packageRules": [
+    {
+      "updateTypes": [
+        "minor",
+        "patch"
+      ],
+      "automerge": true
+    },
+    {
+      "matchPackagePatterns": ["jest", "testing"],
+      "groupName": "tests"
+    },
+    {
+      "matchPackagePatterns": ["storybook"],
+      "groupName": "storybook"
+    }
+  ],
+  "timezone": "Europe/Paris",
+  "schedule": [
+    "every weekend"
   ]
 }
